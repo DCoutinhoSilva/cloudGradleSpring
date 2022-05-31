@@ -1,0 +1,88 @@
+{
+	"key": "<YOUR APPLICATION EXTENSION KEY HERE>",
+	"metaData": {
+		"icon": "images/icon.png",
+		"iconSmall": "images/icon_small.png"
+	},
+	"type": "RestDecision",
+	"lang": {
+		"en-US": {
+			"name": "TestNosSms",
+			"description": "Test building a SMS app"
+		}
+	},
+	"workflowApiVersion": "1.1",
+	"configurationArguments": {
+		"applicationExtensionKey": "<YOUR APPLICATION EXTENSION KEY HERE>",
+		"save": {
+			"url": "https://localhost:8080/activity/save",
+			"verb": "POST",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>"
+		},
+		"publish": {
+			"url": "https://localhost:8080/activity/publish",
+			"verb": "POST",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>"
+		},
+		"validate": {
+			"url": "https://<localhost:8080>/activity/validate",
+			"verb": "POST",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>"
+		}
+	},
+	"wizardSteps": [
+		{"key": "eventdefinitionkey", "label": "Event Definition Key"},
+		{"key": "idselection", "label": "ID Selection"}
+	],
+	"outcomes": [
+		{
+			"arguments": {
+				"branchResult": "<KEY FOR PATH 1>"
+			},
+			"metaData": {
+				"label": "<LABEL FOR PATH 1>"
+			}
+		},
+		{
+			"arguments": {
+				"branchResult": "<KEY FOR PATH 2>"
+			},
+			"metaData": {
+				"label": "<LABEL FOR PATH 2>"
+			}
+		}
+	],
+	"userInterfaces": {
+		"runningModal": {
+			"url": "runningModal.html"
+		},
+		"runningHover": {
+			"url": "runningHover.html"
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [],
+			"outArguments": [],
+			"url": "https://localhost:8080/activity/execute",
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": true,
+			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>",
+			"timeout": 90000
+		}
+	},
+	"edit": {
+		"url": "https://localhost:8080/index.html",
+		"height": 200,
+		"width": 500
+	}
+}
